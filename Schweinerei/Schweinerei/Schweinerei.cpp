@@ -5,22 +5,24 @@
 #include "Schwein.h"
 
 
-int x = 100;
-
+using namespace VW::tiere;
+// Konsument viele
 int main()
 {
-	int x = 10;
-	std::cout << ::x << std::endl;
+
 
 	
-	/*Schwein s;
-	s.name = "Miss Piggy";
-	s.gewicht = 10;
+	Schwein s;
+	s.set_name("Miss Piggy");
 
-	std::cout << "Schwein: Name = " << s.name << ", Gewicht = " << s.gewicht << std::endl;
+	
+
+	std::cout << s << std::endl;
 	
 	s.fressen();
+
 	
-	std::cout << "Schwein: Name = " << s.name << ", Gewicht = " << s.gewicht << std::endl;*/
+	
+	std::cout << s << std::endl;
 }
 
