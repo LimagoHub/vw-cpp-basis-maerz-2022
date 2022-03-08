@@ -13,17 +13,24 @@ namespace VW {
 			// Instanzvariablen
 			std::string name; 
 			int gewicht;
+			static int counter; // Klassenvariable  // extern
 
 			void set_gewicht(const int gewicht)
 			{
+				if (gewicht < 10) return;
 				this->gewicht = gewicht;
 			}
 
 		public:
 
 
-			Schwein(); // Konstruktor Initialisieren -> alle Instanzvariablen werden mit Startwerten belegt
+			Schwein(std::string name = "Nobody"); // Konstruktor Initialisieren -> alle Instanzvariablen werden mit Startwerten belegt
+			~Schwein();
 
+			// statische methoden
+			static int get_anzahl();
+			
+			// Instanzmethoden
 			void fressen();
 
 			inline void set_name(const std::string& name);

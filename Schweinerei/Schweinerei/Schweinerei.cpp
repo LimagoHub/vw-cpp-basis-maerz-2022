@@ -7,22 +7,29 @@
 
 using namespace VW::tiere;
 // Konsument viele
+
+
+int counter = 0;
 int main()
 {
-
-
+	std::cout << "Anzahl Schweine = " << Schwein::get_anzahl() << std::endl;
 	
-	Schwein s;
-	s.set_name("Miss Piggy");
-
+	Schwein s{ "Miss Piggy" };
+	std::cout << "Anzahl Schweine = " << Schwein::get_anzahl() << std::endl;
+	{
+		Schwein b{ "Babe" };
+		std::cout << "Anzahl Schweine = " << Schwein::get_anzahl() << std::endl;
+	}
+	std::cout << "Anzahl Schweine = " << Schwein::get_anzahl() << std::endl;
 	
-
 	std::cout << s << std::endl;
-	
+
 	s.fressen();
 
-	
-	
+
+
 	std::cout << s << std::endl;
+
+	std::cout << "Main Ende" << std::endl;
 }
 
