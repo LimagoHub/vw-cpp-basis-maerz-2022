@@ -6,14 +6,18 @@ namespace collections {
 	/// </summary>
 	class Stapel
 	{
+	private:
+		static const int SIZE{ 10 };
+		int data[SIZE];
+		int index;
 	public:
-		Stapel()
+		Stapel():index(0)
 		{
-			std::cout << "Ctor" << std::endl;
+			
 		}
 		virtual ~Stapel()
 		{
-			std::cout << "Dtor" << std::endl;
+			
 		}
 		/// <summary>
 		/// 
@@ -21,7 +25,8 @@ namespace collections {
 		/// <param name="value"></param>
 		void push(int value)
 		{
-			std::cout << "Push" << std::endl;
+			if (is_full()) return;
+			data[index++] = value;
 		}
 
 		/// <summary>
@@ -30,19 +35,19 @@ namespace collections {
 		/// <returns></returns>
 		int pop() // Ferhlerbehandlung
 		{
-			std::cout << "Pop" << std::endl;
-			return 0;
+			if(is_empty())return 0;
+			return data[--index];
 		}
 
 		bool is_empty()
 		{
-			std::cout << "is_empty" << std::endl;
-			return true;
+			
+			return index <= 0;
 		}
 		bool is_full()
 		{
-			std::cout << "is_full" << std::endl;
-			return true;
+			
+			return index >= SIZE;
 		}
 	};
 }
