@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="StapelProjej´kt.cpp">
+    <ClCompile Include="StapelProjekt.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

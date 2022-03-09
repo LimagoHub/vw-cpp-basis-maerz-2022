@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="StapelProjej´kt.cpp" />
+    <ClCompile Include="StapelProjekt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stapel.h" />
