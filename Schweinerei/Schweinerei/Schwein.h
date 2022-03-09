@@ -47,12 +47,7 @@ namespace VW {
 			}
 
 
-			friend std::ostream& operator<<(std::ostream& os, const Schwein& obj)
-			{
-				return os
-					<< "Schwein: name = " << obj.name
-					<< ", gewicht = " << obj.gewicht;
-			}
+			
 		};
 
 	}
