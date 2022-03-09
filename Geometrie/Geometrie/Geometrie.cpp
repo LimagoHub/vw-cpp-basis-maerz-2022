@@ -5,14 +5,22 @@
 #include "Punkt.h"
 int main()
 {
-    Punkt p{ 5.0};
+    Punkt p{ 0.5, 0.5};
+    Punkt p2{ 1, 1 };
 
-    for (int i = 0; i < 11; ++i)
-    {
-        p.rechts(1.5);
-        std::cout << p << std::endl;
-    }
+    
 	
+    Punkt p3 = p + p2 ;
+
+  
+	
+    //std::cout << p++ << std::endl;
+
+   
+	
+    std::cout << p << " " << p2 << std::endl;
+
+    std::cout << p3 << std::endl;
 }
 
 

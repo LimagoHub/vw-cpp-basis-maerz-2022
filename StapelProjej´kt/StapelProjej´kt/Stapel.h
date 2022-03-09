@@ -7,17 +7,29 @@ namespace collections {
 	class Stapel
 	{
 	private:
-		static const int SIZE{ 10 };
-		int data[SIZE];
+		size_t size;
+		int *data;
 		int index;
 	public:
-		Stapel():index(0)
+		Stapel(int size = 10):size(size),index(0), data(new int[size])
 		{
 			
 		}
+
+		Stapel(const Stapel& other)
+			:size(other.size),
+			index(other.index),
+			data(new int[other.size])
+		{
+			memcpy(data, other.data, size * sizeof(int));
+
+		}
+
+		//Stapel& operator = (const Stapel& other) = delete;
+
 		virtual ~Stapel()
 		{
-			
+			delete[] data;
 		}
 		/// <summary>
 		/// 
@@ -47,7 +59,7 @@ namespace collections {
 		bool is_full()
 		{
 			
-			return index >= SIZE;
+			return index >= size;
 		}
 	};
 }

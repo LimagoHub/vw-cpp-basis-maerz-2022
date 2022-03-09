@@ -6,11 +6,19 @@
 #include "Stapel.h"
 using namespace collections;
 
+
+
+
 int main()
 {
-	Stapel myStapel;
 
-	for (int i = 0; i < 10; ++i)
+
+	
+
+	Stapel myStapel(10);
+	//Stapel myStapel = 10;
+	// Stapel myStapel{ 10 };
+	for (int i = 0; i < 5; ++i)
 	{
 		if(! myStapel.is_full())
 		{
@@ -18,10 +26,16 @@ int main()
 		}
 	}
 
+	Stapel other{ myStapel };
+	// Stapel other = myStapel;
+
+	
+	
 	while(! myStapel.is_empty())
 	{
 		std::cout << myStapel.pop() << std::endl;
 	}
+	// std::cout << other.pop() << std::endl;
 	
     std::cout << "Hello World!\n";
 }

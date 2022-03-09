@@ -34,16 +34,42 @@ public:
 		return y;
 	}
 
-	void rechts(double offset = 1.0); // Überladen ist gleicher Methodenname nur die Art oder Anzahl der Parameter unterscheidet sich.
-	void links();
+	Punkt& rechts(double offset = 1.0); // Überladen ist gleicher Methodenname nur die Art oder Anzahl der Parameter unterscheidet sich.
+	Punkt &  links();
 	void oben();
 	void unten();
 
-
-	friend std::ostream& operator<<(std::ostream& os, const Punkt& obj)
+	Punkt& operator ++()  // Prefix
 	{
-		return os
-			<< "x: " << obj.x
-			<< " y: " << obj.y;
+		rechts();
+		oben();
+		return *this;
+	}
+
+	Punkt operator ++(int dummy) // Postfix
+	{
+		Punkt temp{ *this };
+		++* this;
+		return temp;
+	}
+
+	Punkt & operator *= (double skalar)
+	{
+		set_x(get_x() * skalar);
+		set_y(get_y() * skalar);
+		return *this;
+	}
+
+	friend std::ostream& operator<<(std::ostream& peter, const Punkt& p)
+	{
+		
+		return peter
+			<< "x: " << p.get_x()
+			<< " y: " << p.get_y();
+	}
+
+	friend Punkt operator + (const Punkt& a, const Punkt& b)
+	{
+		return Punkt{ a.x + b.x, a.y + b.y };
 	}
 }; 
