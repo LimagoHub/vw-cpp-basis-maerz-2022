@@ -29,13 +29,13 @@ public :
 
 };
 
-std::unique_ptr < Simple> source()
+auto source()->std::unique_ptr < Simple>
 {
 	std::cout << "Das Auto wird gebaut" << std::endl;
 	return std::unique_ptr < Simple>{new Simple()};
 }
 
-void sink(std::unique_ptr < Simple> parameter)
+auto sink(std::unique_ptr < Simple> parameter)->void
 {
 	std::cout << "Das Auto wird gefahren" << std::endl;
 	
@@ -43,7 +43,7 @@ void sink(std::unique_ptr < Simple> parameter)
 
 
 
-int main()
+auto main()->int
 {
 	std::cout << "Das Auto wird gekauft" << std::endl;
 	std::unique_ptr<Simple> myPointer = source();
