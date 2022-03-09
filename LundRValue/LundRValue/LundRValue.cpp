@@ -29,27 +29,27 @@ public :
 
 };
 
-auto source()->std::unique_ptr < Simple>
-{
-	std::cout << "Das Auto wird gebaut" << std::endl;
-	return std::unique_ptr < Simple>{new Simple()};
-}
 
-auto sink(std::unique_ptr < Simple> parameter)->void
-{
-	std::cout << "Das Auto wird gefahren" << std::endl;
-	
-}
-
-
-
+std::shared_ptr<Simple> global;
 auto main()->int
 {
-	std::cout << "Das Auto wird gekauft" << std::endl;
-	std::unique_ptr<Simple> myPointer = source();
-	std::cout << "Das Auto wurde gekauft" << std::endl;
-	sink(std::move(myPointer));
+	std::shared_ptr<Simple> myPointer1{ new Simple() };
 
+	myPointer1->ausgabe();
+
+	std::cout << myPointer1.use_count() << std::endl; // 1
+
+	std::shared_ptr<Simple> other = myPointer1;
+	std::cout << myPointer1.use_count() << std::endl; // 2
+
+	global = myPointer1;
+	std::cout << myPointer1.use_count() << std::endl; // 3
+
+	{
+		std::shared_ptr<Simple> myPointer2 = myPointer1; 
+		std::cout << myPointer1.use_count() << std::endl; // 4
+	}
+	std::cout << myPointer1.use_count() << std::endl; // 3
 	
 	std::cout << "Main ende" << std::endl;
 }
