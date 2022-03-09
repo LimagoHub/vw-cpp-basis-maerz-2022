@@ -14,7 +14,7 @@ namespace VW {
 			std::string name; 
 			int gewicht;
 			static int counter; // Klassenvariable  // extern
-
+			
 			void set_gewicht(const int gewicht)
 			{
 				if (gewicht < 10) return;
