@@ -2,41 +2,31 @@
 //
 
 #include <iostream>
-
+#include <string>
 #include "Stapel.h"
+#include <exception>
+
 using namespace collections;
-
-
 
 
 int main()
 {
 
-
 	
-
+	
+	
 	Stapel myStapel(10);
-	//Stapel myStapel = 10;
-	// Stapel myStapel{ 10 };
-	for (int i = 0; i < 5; ++i)
+
+	for (int i = 0; i < 3; ++i)
 	{
-		if(! myStapel.is_full())
-		{
-			myStapel.push(i);
-		}
+		myStapel.push(i);
 	}
 
-	Stapel other{ myStapel };
-	// Stapel other = myStapel;
+	Stapel jack_sparrow = std::move(myStapel);
+
+	std::cout << "MyStapel is_full " << myStapel.is_full() << ", is_empty " << myStapel.is_empty() << std::endl;
+	std::cout << "Jack is_full " << jack_sparrow.is_full() << ", is_empty " << jack_sparrow.is_empty() << std::endl;
 
 	
-	
-	while(! myStapel.is_empty())
-	{
-		std::cout << myStapel.pop() << std::endl;
-	}
-	// std::cout << other.pop() << std::endl;
-	
-    std::cout << "Hello World!\n";
 }
 

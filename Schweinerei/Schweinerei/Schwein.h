@@ -46,7 +46,25 @@ namespace VW {
 				return name;
 			}
 
+			Schwein & operator ++ ()
+			{
+				fressen();
+				return *this;
+			}
 
+			Schwein operator ++ (int)
+			{
+				Schwein alt{ *this };
+				++* this;
+				return alt;
+			}
+
+			friend std::ostream & operator << (std::ostream& ostream, const Schwein & schwein)
+			{
+				ostream << "Schwein: Name = " << schwein.get_name();
+				ostream << ", Gewicht = " << schwein.get_gewicht();
+				return ostream;
+			}
 			
 		};
 
