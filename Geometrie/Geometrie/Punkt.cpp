@@ -1,9 +1,11 @@
 #include "Punkt.h"
+#include <iostream>
 
 Punkt::Punkt(double x, double y)
 {
 	set_x(x);
 	set_y(y);
+	std::cout << "Ctor Punkt" << std::endl;
 }
 
 Punkt & Punkt::rechts(double offset)

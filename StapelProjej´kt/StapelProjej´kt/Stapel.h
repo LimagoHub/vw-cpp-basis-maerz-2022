@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <vector>
+#include "stapel_exception.h"
 namespace collections {
 	/// <summary>
 	/// Fachliche Dokumentation
@@ -10,56 +12,43 @@ namespace collections {
 	{
 	private:
 		size_t size;
-		T *data;
+		std::vector<T> data;
 		int index;
-		void holeVon(const Stapel& other)
-		{
-			size = other.size;
-			index = other.index;
-			data = new int[size];
-			memcpy(data, other.data, size * sizeof(int));
-		}
+		
 	public:
-		Stapel(int size = 10):size(size),index(0), data(new int[size])
+		Stapel(size_t size = 10):size(size),index(0)
 		{
 			
 		}
+		Stapel(const Stapel&) = default;
 
-		Stapel(const Stapel& other)
+		Stapel<T>& operator = (const Stapel&) = default;
+		
+		Stapel(Stapel&& other) noexcept
 		{
-			holeVon(other);
-
-		}
-		Stapel(Stapel&& other)
-		{
-	
-			std::exchange(data, nullptr);
-			std::exchange(size, 0);
-			/*size = other.size;
-			other.size = 0;*/
-			std::exchange(index, 0);
-			
+		
+			data = std::move(other.data);
+			std::exchange(other.size, 0);
+			std::exchange(other.index, 0);
+		 	
 		}
 		
 
-		Stapel& operator = (const Stapel& other){
-			delete[] data;
-			holeVon(other);
-			return *this;
-		}
+		
 
-		virtual ~Stapel()
-		{
-			if(data) delete[] data;
-		}
+		
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="value"></param>
-		void push(T value)
+		/// <exception cref="stapel_exception">echt böser fehler</exception>
+		void push(T value) 
 		{
-			if (is_full()) return;
-			data[index++] = value;
+			if (is_full()) throw stapel_exception{"overflow"};
+			
+			data.emplace_back(value);
+			index++;
+		
 		}
 
 		/// <summary>
@@ -68,16 +57,19 @@ namespace collections {
 		/// <returns></returns>
 		T pop() // Ferhlerbehandlung
 		{
-			if(is_empty())return 0;
-			return data[--index];
+			if(is_empty())throw stapel_exception{ "underflow" };
+			index--;
+			T result = data.back();
+			data.pop_back();
+			return result;
 		}
 
-		bool is_empty()
+		bool is_empty() noexcept
 		{
 			
-			return index <= 0;
+			return data.empty();
 		}
-		bool is_full()
+		bool is_full() noexcept
 		{
 			
 			return index >= size;

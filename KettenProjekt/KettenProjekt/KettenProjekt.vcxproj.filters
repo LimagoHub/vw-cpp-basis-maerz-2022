@@ -13,23 +13,35 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="collections">
+      <UniqueIdentifier>{322b3347-ba4c-4ac8-9711-db86b5262336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client">
+      <UniqueIdentifier>{15c725c1-f586-40ed-a441-3bca2e614aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tiere">
+      <UniqueIdentifier>{5676f886-54b3-4b76-85eb-918d548dfaa6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Geometrie.cpp">
+    <ClCompile Include="KettenProjekt.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Punkt.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Kreis.cpp">
+    <ClCompile Include="Client.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Punkt.h">
+    <ClInclude Include="Liste.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Kreis.h">
+    <ClInclude Include="Client.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="ListeImpl.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Schwein.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6e568af7-d095-4fa5-ab54-2331d721cf9c}</ProjectGuid>
-    <RootNamespace>StapelProjejkt</RootNamespace>
+    <ProjectGuid>{fa3f68f6-98fd-4557-bc52-ba2f7068d85b}</ProjectGuid>
+    <RootNamespace>Fehlerbehandlung</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,12 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="StapelProjekt.cpp" />
-    <ClCompile Include="stapel_exception.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Stapel.h" />
-    <ClInclude Include="stapel_exception.h" />
+    <ClCompile Include="Fehlerbehandlung.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

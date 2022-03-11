@@ -5,7 +5,7 @@
 #include <string>
 #include "Stapel.h"
 #include <exception>
-
+#include "stapel_exception.h"
 using namespace collections;
 
 
@@ -13,20 +13,35 @@ int main()
 {
 
 	
-	
-	
-	Stapel myStapel(10);
+	try {
 
-	for (int i = 0; i < 3; ++i)
+		Stapel<int> myStapel;
+
+		for (int i = 0; i < 10; ++i)
+		{
+			myStapel.push(i);
+		}
+
+		while (!myStapel.is_empty())
+		{
+			std::cout << myStapel.pop() << std::endl;
+		}
+
+		
+	}
+	catch (stapel_exception& ex)
 	{
-		myStapel.push(i);
+		std::cout << ex.what() << std::endl;
 	}
 
-	Stapel jack_sparrow = std::move(myStapel);
+	catch (std::exception & ex)
+	{
+		std::cout << "Unbekannter Fehler:" <<  ex.what() << std::endl;
+	}
+	
 
-	std::cout << "MyStapel is_full " << myStapel.is_full() << ", is_empty " << myStapel.is_empty() << std::endl;
-	std::cout << "Jack is_full " << jack_sparrow.is_full() << ", is_empty " << jack_sparrow.is_empty() << std::endl;
-
+	
+	
 	
 }
 

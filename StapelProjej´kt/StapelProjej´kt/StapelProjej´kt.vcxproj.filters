@@ -21,9 +21,15 @@
     <ClCompile Include="StapelProjekt.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="stapel_exception.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stapel.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="stapel_exception.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

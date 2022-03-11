@@ -1,8 +1,11 @@
 #pragma once
 #include <ostream>
+#include <string>
 
 class Punkt
 {
+
+
 	const double MAX{ 10.0 };
 	double x, y;
 
@@ -19,6 +22,7 @@ class Punkt
 		if (y < -MAX) y = -MAX;
 		this->y = y;
 	}
+
 
 public:
 
@@ -71,5 +75,11 @@ public:
 	friend Punkt operator + (const Punkt& a, const Punkt& b)
 	{
 		return Punkt{ a.x + b.x, a.y + b.y };
+	}
+
+
+	virtual std::string foo()
+	{
+		return std::string{ "Hier ist foo aus Punkt" };
 	}
 }; 
