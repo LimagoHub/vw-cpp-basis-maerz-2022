@@ -5,11 +5,11 @@ class Liste // Interface
 {
 public:
 
-	virtual void append(T* value) = 0;
+	virtual void append(T value) = 0;
 	virtual bool remove() = 0; // löscht das aktuelle Element
 	virtual void clear() = 0;
 	virtual T get()=0; // nullptr wenn Liste leer
-	virtual bool update(T* newvalue) = 0;
+	virtual bool update(T newvalue) = 0;
 
 	virtual bool move_first() = 0;
 	virtual bool move_last() = 0;

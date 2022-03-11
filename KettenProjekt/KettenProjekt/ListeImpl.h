@@ -8,10 +8,10 @@ class Kettenglied
 public:
 	Kettenglied* vor;
 	Kettenglied* nach;
-	T *data;
+	T data;
 
 
-	Kettenglied(T* data)
+	Kettenglied(T data)
 		: data(data),vor(nullptr),nach(nullptr)
 	{
 	}
@@ -35,7 +35,7 @@ public:
 	ListeImpl(const ListeImpl&) = delete;
 	ListeImpl& operator = (const ListeImpl&) = delete;
 	
-	void append(T* value) override
+	void append(T value) override
 	{
 		Kettenglied<T> *temp = new Kettenglied<T>(value);
 		if(is_empty())
@@ -58,7 +58,7 @@ public:
 	{
 		return {};
 	}
-	bool update(T* newvalue) override
+	bool update(T newvalue) override
 	{
 		return false;
 	}

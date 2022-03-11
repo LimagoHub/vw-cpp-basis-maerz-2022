@@ -7,7 +7,7 @@ using namespace std;
 class Client
 {
 private:
-	Liste<Schwein>& liste;
+	Liste<Schwein*>& liste;
 
 	Schwein * createSchwein()
 	{
@@ -32,7 +32,7 @@ private:
 	}
 
 public:
-	Client(Liste<Schwein>& liste)
+	Client(Liste<Schwein*>& liste)
 		: liste(liste)
 	{
 	}

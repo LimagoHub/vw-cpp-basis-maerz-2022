@@ -9,7 +9,7 @@
 
 int main()
 {
-	ListeImpl<Schwein> liste;
+	ListeImpl<Schwein*> liste;
 	Client c{ liste };
 	c.run();
 	
