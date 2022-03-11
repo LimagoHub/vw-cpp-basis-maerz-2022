@@ -9,8 +9,11 @@ class Client
 private:
 	Liste<Schwein>& liste;
 
-	Schwein * createSchwein(string name)
+	Schwein * createSchwein()
 	{
+		string name;
+		cout << "Bitte geben Sie dem Schwein einen Namen:" << endl;
+		cin >> name;
 		return new Schwein(name);
 	}
 
@@ -40,7 +43,21 @@ public:
 		while(command != 0)
 		{
 			show_menu();
-			command = 0;
+			cin >> command;
+			switch(command)
+			{
+			case 0: exit(0);
+			case 1: liste.append(createSchwein()); break;
+			case 2:liste.update(createSchwein()); break; 
+			case 3:liste.remove(); break;
+			case 4:cout << liste.get() << endl; break;
+			case 5:liste.move_first(); break;
+			case 6:liste.move_last(); break;
+			case 7:liste.move_next(); break;
+			case 8:liste.move_previous(); break;
+			case 9:cout << "Empty = " << liste.is_empty() <<", BOL = " << liste.is_bol() << ", EOL = " << liste.is_eol() << endl; break;
+			default: cout << "Unbekannter Befehl." << endl;
+			}
 		}
 	}
 };
