@@ -32,17 +32,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Liste.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="Schwein.h">
+      <Filter>tiere</Filter>
     </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="Liste.h">
+      <Filter>collections</Filter>
     </ClInclude>
     <ClInclude Include="ListeImpl.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>collections</Filter>
     </ClInclude>
-    <ClInclude Include="Schwein.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="Client.h">
+      <Filter>client</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,8 +11,13 @@ public:
 	virtual T get()=0; // nullptr wenn Liste leer
 	virtual bool update(T newvalue) = 0;
 
-	virtual bool move_first() = 0;
-	virtual bool move_last() = 0;
+	virtual bool move_first()
+	{
+		if (is_empty()) return false;
+		while (move_previous());
+		return true;
+	}
+	virtual bool move_last()=0;
 	virtual bool move_previous() = 0;
 	virtual bool move_next() = 0;
 	/// <summary>
@@ -28,4 +33,5 @@ public:
 	virtual bool is_empty() = 0;
 
 };
+
 

@@ -31,10 +31,18 @@ public:
 	{
 	}
 
-	
+	virtual ~ListeImpl()
+	{
+		clear();
+	}
 	ListeImpl(const ListeImpl&) = delete;
 	ListeImpl& operator = (const ListeImpl&) = delete;
-	
+
+	void clear() override
+	{
+		while (remove());
+	}
+
 	void append(T value) override
 	{
 		Kettenglied<T> *temp = new Kettenglied<T>(value);
@@ -51,32 +59,81 @@ public:
 	}
 	bool remove() override
 	{
+		if(is_empty()) return false;
+
+		if(is_bol() && is_eol())
+		{
+			delete start;
+			start = akt = nullptr;
+			return true;
+		}
+
+		if(is_bol())
+		{
+			move_next();
+			delete start;
+			start = akt;
+			return true;
+		}
+
+		if(is_eol())
+		{
+			move_previous();
+			delete akt->nach;
+			akt->nach = nullptr;
+			return true;
+		}
+
+		auto toDelete = akt;
+
+		akt->vor->nach = akt->nach;
+		akt->nach->vor = akt->vor;
+		move_next();
+		
+		delete toDelete;
 		return true;
 	}
-	void clear() override {}
+	
 	T get() override
 	{
-		return {};
+		
+		if(is_empty())
+			return {};
+		return akt->data;
 	}
 	bool update(T newvalue) override
 	{
-		return false;
+		if (is_empty())
+			return false;
+		akt->data = newvalue;
+		return true;
 	}
-	bool move_first() override
+	/*bool move_first() override
 	{
-		return false;
+		if (is_empty()) return false;
+		akt = start;
+		return true;
+	}*/
+
+	bool move_last() override{
+		
+			if (is_empty()) return false;
+			while (move_next());
+			return true;
+		
 	}
-	bool move_last() override
-	{
-		return false;
-	}
+
 	bool move_previous() override
 	{
-		return false;
+		if(is_bol()) return false;
+		akt = akt->vor;
+		return true;
 	}
 	bool move_next() override
 	{
-		return false;
+		if (is_eol()) return false;
+		akt = akt->nach;
+		return true;
 	}
 	
 	bool is_bol() override

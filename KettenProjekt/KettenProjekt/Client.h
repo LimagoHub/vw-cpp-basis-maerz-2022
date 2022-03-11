@@ -50,7 +50,7 @@ public:
 			case 1: liste.append(createSchwein()); break;
 			case 2:liste.update(createSchwein()); break; 
 			case 3:liste.remove(); break;
-			case 4:cout << liste.get() << endl; break;
+			case 4:cout << *liste.get() << endl; break;
 			case 5:liste.move_first(); break;
 			case 6:liste.move_last(); break;
 			case 7:liste.move_next(); break;
